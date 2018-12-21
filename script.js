@@ -1,9 +1,9 @@
 var contactSearchApp = angular.module("ContactSearchApp", []);
 
 contactSearchApp.controller("mainCtrl", function ($scope, $http) {
-    $scope.username = "Siddhartha";
-    $scope.searchBar = "Search ...";
+//    $scope.searchBar = "Search ...";
     $scope.peopleData = [];
+//    $scope.filterArray = angular.copy($scope.peopleData);
     $scope.showTable = false;
     $scope.selectedPerson = {
         name: '',
@@ -12,6 +12,7 @@ contactSearchApp.controller("mainCtrl", function ($scope, $http) {
         likes : [],
         dislikes : [],
     }
+    $scope.username = "Guest User";
 
     $http.get('./people_(5).json').then(function (data) {
         var res = data.data.People;
@@ -34,7 +35,7 @@ contactSearchApp.controller("mainCtrl", function ($scope, $http) {
         return likeDislikeArray;
     }
 
-
+        
     $scope.showDescription = function(index){
         var person = $scope.peopleData[index];
         $scope.selectedPerson.name = person.name;
@@ -44,5 +45,8 @@ contactSearchApp.controller("mainCtrl", function ($scope, $http) {
         $scope.selectedPerson.dislikes = person.Dislikes;
 
         $scope.likeDislikeArray = setLikesDislikes($scope.selectedPerson.likes,$scope.selectedPerson.dislikes);
+        $scope.username = $scope.selectedPerson.name;
     }   
+    
+    
 });

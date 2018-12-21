@@ -10,21 +10,21 @@
 <body ng-app="ContactSearchApp" ng-controller="mainCtrl">
 
     <header id="Search">
-        <input class="searchBar" type="text" placeholder="Search ..." />
+        <input class="searchBar" type="text" placeholder="Search ..." ng-model="searchText" />
         <div id="img"></div>
         <span>{{username}}</span>
     </header>
 
     <div class="main">
         <aside class="contactList">
-            <div class="list" ng-repeat="people in peopleData" ng-click="showDescription($index)">
+            <div class="list" ng-repeat="people in peopleData | filter:{name:searchText}" ng-click="showDescription($index)">
                 <h2>{{people.name}}</h2>
             </div>
         </aside>
         <section>
             <div id="container">
                 <div class="descHeader" ng-if="selectedPerson.name !== ''">
-                    <img src={{selectedPerson.img}} alt={{selectedPerson.name}} />
+                    <img src={{selectedPerson.img}} alt={{selectedPerson.name}} height="100" width="100"/>
                     <button>Send Message!</button>
                 </div>
                 <div class="descBody">
