@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body ng-app="ContactSearchApp" ng-controller="mainCtrl">
+
+    <header id="Search">
+        <input class="searchBar" type="text" placeholder="Search ..." />
+        <div id="img"></div>
+        <span>{{username}}</span>
+    </header>
+
+    <div class="main">
+        <aside class="contactList">
+            <div class="list" ng-repeat="people in peopleData" ng-click="showDescription($index)">
+                <h2>{{people.name}}</h2>
+            </div>
+        </aside>
+        <section>
+            <div id="container">
+                <div class="descHeader" ng-if="selectedPerson.name !== ''">
+                    <img src={{selectedPerson.img}} alt={{selectedPerson.name}} />
+                    <button>Send Message!</button>
+                </div>
+                <div class="descBody">
+                    {{selectedPerson.description}}
+                </div>
+                <div class="dataTable" ng-if="showTable">
+
+                    <table>
+                        <tr>
+                            <th>Likes</th>
+                            <th>Dislikes</th>
+                        </tr>
+                        <tr ng-repeat="row in likeDislikeArray">
+                            <td ng-repeat="item in row"> {{item}} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h2>This is my footer</h2>
+    </footer>
+
+</body>
+
+</html>

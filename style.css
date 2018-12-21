@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+}
+/* css reset ends */
+
+
+header, footer{
+    padding: 15px;
+    background: lightgray;
+
+}
+
+.searchBar{
+    padding: 5px;
+    border-radius: 10px;
+    float: left;
+    margin-left: 20px;
+    width: 200px;
+    font-size: 17px;
+}
+
+#Search span{
+    float: right;
+    font-size: 20px;
+}
+
+#img{
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border: 1px solid black;
+}
+
+#Search{
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%
+}
+
+/* styles for the main content starts */
+
+#container{
+    text-align: center;
+}
+
+#container table{
+    border: 2px solid black;
+}
+
+section{
+    width: 65%;
+    float: left;
+    height: 400px;
+    background: grey;
+}
+
+.descHeader{
+    height: 150px;
+}
+
+.descHeader button{
+    padding: 10px 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.descBody{
+    width: 80%;
+    margin: 10px auto;
+}
+
+.dataTable{
+    margin: 0px auto;
+    display: inline-block;
+}
+
+.dataTable table{
+    width: 350px;
+}
+
+/* Side bar styles */
+.contactList{
+    width: 35%;
+    float: left;
+    height: 400px;
+    background: whitesmoke;
+}
+
+.list{
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: 2px;
+}
+
+.list:hover{
+    background: lightgray;
+    cursor: pointer;
+}
+
+/*  sidebar ends */
+
+.main{
+    margin: 5px 0px;
+}
+
+.main::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* styles for the main content ends */
