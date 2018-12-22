@@ -2,8 +2,15 @@
 <html>
 
 <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+
+    <script src='./ui-bootstrap-custom-tpls-2.5.0.js'></script>
+
     <script src="script.js"></script>
 </head>
 
@@ -11,7 +18,9 @@
 
     <header id="Search">
         <input class="searchBar" type="text" placeholder="Search ..." ng-model="searchText" />
-        <div id="img"></div>
+        <div id="img" ng-show="selectedPerson.name !== ''">
+            <img src={{selectedPerson.img}} height="40" width="40" />
+        </div>
         <span>{{username}}</span>
     </header>
 
@@ -23,9 +32,15 @@
         </aside>
         <section>
             <div id="container">
-                <div class="descHeader" ng-if="selectedPerson.name !== ''">
-                    <img src={{selectedPerson.img}} alt={{selectedPerson.name}} height="100" width="100"/>
-                    <button>Send Message!</button>
+                <div class="descHeader" ng-show="selectedPerson.name !== ''">
+                    <img src={{selectedPerson.img}} alt={{selectedPerson.name}} height="80" width="80" />
+
+                    <div class="messageContainer">
+                        <button>Send Message!</button>
+
+                        <span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-leave="overStar = null"></span>
+
+                    </div>
                 </div>
                 <div class="descBody">
                     {{selectedPerson.description}}
@@ -47,7 +62,7 @@
     </div>
 
     <footer>
-        <h2>This is my footer</h2>
+        <small> Made by siddhartha</small>
     </footer>
 
 </body>

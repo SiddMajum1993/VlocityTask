@@ -1,22 +1,31 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0px;
     padding: 5px;
     text-align: center;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 /* css reset ends */
 
 
-header, footer{
+header,
+footer {
     padding: 15px;
     background: lightgray;
 
 }
 
-.searchBar{
+.searchBar {
     padding: 5px;
     border-radius: 10px;
     float: left;
@@ -25,20 +34,23 @@ header, footer{
     font-size: 17px;
 }
 
-#Search span{
+#Search span {
     float: right;
     font-size: 20px;
+    margin-top: 8px;
 }
 
-#img{
+#img {
     float: right;
+    /*
     width: 30px;
     height: 30px;
+*/
     margin-left: 10px;
     border: 1px solid black;
 }
 
-#Search{
+#Search {
     content: "";
     clear: both;
     display: table;
@@ -46,76 +58,115 @@ header, footer{
 }
 
 /* styles for the main content starts */
+/*Adding Flexbox*/
 
-#container{
-    text-align: center;
+.main {
+    display: flex;
+    margin: 5px 0px;
 }
 
-#container table{
-    border: 2px solid black;
-}
+/*Flexbox ends*/
 
-section{
-    width: 65%;
+section {
+    flex-basis: 65%;
+    /*
     float: left;
     height: 400px;
-    background: grey;
-}
-
-.descHeader{
-/*    height: 150px;*/
+*/
     display: flex;
-    align-items: center;
+    background: grey;
     justify-content: center;
 }
 
-.descHeader button{
-    padding: 10px 5px;
-    font-size: 15px;
+#container {
+    /*    text-align: center;*/
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+}
+
+.descHeader {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.messageContainer button {
+    padding: 10px;
+    margin: 5px;
     border-radius: 5px;
-    margin-top: 10px;
-    margin-left: 5px;
+    border: 2px solid black;
 }
 
-.descHeader img{
-    margin-top: 10px;
+.messageContainer button:hover {
+    background-color: white;
 }
 
-.descBody{
-    width: 80%;
-    margin: 10px auto;
+.descBody {
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
-.dataTable{
-    margin: 0px auto;
-    display: inline-block;
+.dataTable {
+    flex: 1;
 }
 
-.dataTable table{
-    width: 350px;
+.dataTable table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.dataTable td,
+th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+.dataTable tr:nth-child(even) {
+    background-color: lightgray;
 }
 
 /* Side bar styles */
-.contactList{
-    width: 35%;
+.contactList {
+    flex-basis: 35%;
+    /*
     float: left;
     height: 400px;
+*/
     background: whitesmoke;
+    display: flex;
+    flex-direction: column;
 }
 
-.list{
+.list {
     border: 2px solid black;
     border-collapse: collapse;
     margin: 2px;
+    padding: 5px;
 }
 
-.list:hover{
+.list:hover {
     background: lightgray;
     cursor: pointer;
 }
 
 /*  sidebar ends */
 
+
+
+/*
 .main{
     margin: 5px 0px;
 }
@@ -125,5 +176,6 @@ section{
     clear: both;
     display: table;
 }
+*/
 
 /* styles for the main content ends */
